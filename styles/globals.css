@@ -1,0 +1,183 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@700&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+h1,
+h2 {
+  font-family: 'Poppins-bold';
+}
+h1 {
+  @apply text-[25px];
+}
+
+@font-face {
+  font-family: 'playfairItalic';
+  src: url('../public/fonts/PlayfairDisplay-BoldItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../public/fonts/Poppins-Italic.woff2') format('woff2'),
+    url('../public/fonts/Poppins-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+/* @font-face {
+  font-family: 'Poppins-400';
+  src: url('../public/fonts/Poppins-ExtraBoldItalic.woff2') format('woff2'),
+      url('../public/fonts/Poppins-ExtraBoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+ */
+@font-face {
+  font-family: 'Poppins-bold-i';
+  src: url('../public/fonts/Poppins-BoldItalic.woff2') format('woff2'),
+    url('../public/fonts/Poppins-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins-bold';
+  src: url('../public/fonts/Poppins-Bold.woff2') format('woff2'),
+    url('../public/fonts/Poppins-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.r-arrow:hover {
+  stroke: #000;
+}
+.content-area {
+  resize: vertical;
+  overflow: auto;
+}
+
+.special-offer {
+  letter-spacing: 4px;
+}
+
+.card {
+  @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
+}
+
+.primary-button {
+  @apply rounded bg-amber-300 py-2 px-4 shadow outline-none hover:bg-amber-400 active:bg-amber-500;
+}
+.h1-primary {
+  @apply lg:text-[35px] text-center  mb-[30px] md:text-[30px] font-[500];
+  text-transform: uppercase;
+}
+.h2-primary {
+  @apply text-[36px] text-center;
+}
+.h3-primary {
+  @apply text-[22px] text-center;
+}
+.text-primary {
+  @apply text-center lg:text-[18px] md:text-[18px] font-[500] text-gray-800;
+}
+.text-secondary {
+  @apply text-center text-[18px] font-[400] text-gray-800;
+}
+.text-footer {
+  @apply text-left text-[18px] font-[400] text-gray-200;
+}
+.text-header {
+  @apply block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-white text-[18px] font-[500] text-gray-100;
+}
+.text-btn {
+  @apply hover:text-slate-700;
+}
+.center-item {
+  @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%];
+}
+.center-col {
+  @apply absolute top-[50%]   translate-y-[-50%];
+}
+.overlay {
+  @apply bg-slate-600 opacity-50 absolute top-0 left-0 w-full h-[100%];
+}
+.btn-primary {
+  @apply flex flex-row justify-center items-center;
+}
+.btn-card-lg {
+  @apply flex flex-row items-center justify-center border-solid border-slate-200 border-2 w-[150px];
+}
+.btn-service:hover p {
+  @apply text-slate-900;
+}
+.btn {
+  @apply hover:bg-slate-100;
+}
+.space {
+  letter-spacing: 1.5px;
+}
+.grid-md-cols {
+  @apply grid md:grid-cols-2;
+}
+.grid-sm-cols {
+  @apply grid sm:grid-cols-2;
+}
+.grid-lg-cols {
+  @apply grid lg:grid-cols-3;
+}
+.sub_container {
+  @apply border-slate-500 border-solid border-[1px] rounded-lg shadow-md;
+}
+
+/* RESPONSIVE */
+
+/* .form_responsive {
+  @apply sm:w-[95%] md:w-[70%] lg:w-[60%] min-[320px]:w-[90%];
+}
+
+.h2-responsive {
+  @apply lg:text-[30px]  min-[320px]:text-[25px] text-gray-800 text-center;
+}
+.h3-responsive {
+  @apply min-[320px]:text-[18px] lg:text-[22px];
+}
+.text-footer-responsive {
+  @apply text-gray-200 font-[700] min-[320px]:text-[13px] lg:text-[18px];
+}
+.about-content-responsive {
+  @apply max-[719px]:flex-col max-[719px]:justify-center max-[719px]:items-center max-[719px]:h-[500px];
+}
+.about_xtra_res {
+  @apply max-[880px]:flex-col max-[880px]:justify-center max-[880px]:items-center;
+}
+ */
