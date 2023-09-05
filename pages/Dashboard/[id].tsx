@@ -29,7 +29,8 @@ export async function getStaticProps({
 > {
   try {
     let response = await fetch(
-      process.env.URL + '/api/getContent?id=' + params?.id
+      process.env.URL + '/api/getContent?id=' + params?.id,
+      { cache: 'no-store' }
     );
 
     let responseFromServer: ResponseFromServer = await response.json();
@@ -59,7 +60,9 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  let posts = await fetch(process.env.URL + '/api/getContents');
+  let posts = await fetch(process.env.URL + '/api/getContents', {
+    cache: 'no-store',
+  });
 
   let postFromServer: [Post] = await posts.json();
   return {
@@ -90,6 +93,7 @@ export default function EditPost({
           process.env.URL + '/api/editContent?id=' + _id,
           {
             method: 'POST',
+            cache: 'no-store',
             body: JSON.stringify({
               name: postTitle,
               description: postContent,
