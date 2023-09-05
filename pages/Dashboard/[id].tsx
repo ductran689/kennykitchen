@@ -29,7 +29,7 @@ export async function getStaticProps({
 > {
   try {
     let response = await fetch(
-      'http://127.0.0.1/api/getContent?id=' + params?.id
+      'http://127.0.0.1:3000/api/getContent?id=' + params?.id
     );
 
     let responseFromServer: ResponseFromServer = await response.json();
@@ -59,7 +59,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  let posts = await fetch('http://127.0.0.1/api/getContents');
+  let posts = await fetch('http://127.0.0.1:3000/api/getContents');
 
   let postFromServer: [Post] = await posts.json();
   return {
@@ -87,7 +87,7 @@ export default function EditPost({
     if (postTitle && postContent) {
       try {
         let response = await fetch(
-          'http://127.0.0.1/api/editContent?id=' + _id,
+          'http://127.0.0.1:3000/api/editContent?id=' + _id,
           {
             method: 'POST',
             body: JSON.stringify({
