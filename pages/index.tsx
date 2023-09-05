@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 /* import data from '../utils/data'; */
-import Carousel from '../components/Carousel';
+import Carousel1 from '../components/Carousel1';
 import Form from '../components/Form';
 /* import ProductItem from '../components/ProductItem'; */
 import text from '../utils/text';
@@ -39,7 +39,7 @@ export default function Home(props: any) {
   return (
     <Layout title="Kenny Kitchen">
       <div className="carousel w-full mx-auto ">
-        <Carousel loop>
+        <Carousel1 loop>
           {data.carousel.map((src, i) => {
             return (
               // 👇 style each individual slide.
@@ -99,7 +99,7 @@ export default function Home(props: any) {
               </div>
             );
           })}
-        </Carousel>
+        </Carousel1>
       </div>
       {/* Products */}
       {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
