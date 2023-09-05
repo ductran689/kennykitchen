@@ -112,51 +112,50 @@ export default function EditPost({
     }
   };
 
-  // no such post exists
-  /* if (!title && !content && !_id && process.browser) {
-    return (window.location.href = '/');
-  } */
-
   return (
     <SubLayout topic="manage" btn="false">
-      <form onSubmit={handleSubmit} className="form w-[80%] m-auto">
-        {error ? <div className="alert-error">{error}</div> : null}
-        {message ? (
-          <div className="alert-message text-blue-700 font-poppins mb-4 text-center font-bold">
-            {message}
+      <div className="relative">
+        <form onSubmit={handleSubmit} className="form w-[80%] m-auto ">
+          {error ? <div className="alert-error">{error}</div> : null}
+          {message ? (
+            <div className="alert-message text-blue-700 font-poppins mb-4 text-center font-bold">
+              {message}
+            </div>
+          ) : null}
+          <div className="form-group flex flex-row justify-start mb-4">
+            <label className="mr-4 w-[20%] font-poppinsbold">Name</label>
+            <input
+              type="text"
+              placeholder="Title of the post"
+              onChange={(e) => setPostTitle(e.target.value)}
+              value={postTitle ? postTitle : ''}
+              className="w-[75%] bg-gray-300 rounded-md p-2 text-center"
+            />
           </div>
-        ) : null}
-        <div className="form-group flex flex-row justify-start mb-4">
-          <label className="mr-4 w-[20%] font-poppinsbold">Name</label>
-          <input
-            type="text"
-            placeholder="Title of the post"
-            onChange={(e) => setPostTitle(e.target.value)}
-            value={postTitle ? postTitle : ''}
-            className="w-[75%] bg-gray-300 rounded-md p-2 text-center"
-          />
-        </div>
-        <div className="form-group flex flex-row justify-start ">
-          <label className="mr-4 w-[20%] font-poppinsbold">Content</label>
-          <textarea
-            name="content"
-            placeholder="Content of the post"
-            value={postContent ? postContent : ''}
-            onChange={(e) => setPostContent(e.target.value)}
-            cols={40}
-            rows={8}
-            className="w-[75%] bg-gray-300 rounded-md p-2"
-          />
-        </div>
-        <div className="form-group">
-          <button
-            type="submit"
-            className="submit_btn border-solid border-2 border-black text-black hover:text-blue-600 hover:bg-gray-300 font-semibold p-2 rounded-md hover:border-blue-700"
-          >
-            Update
-          </button>
-        </div>
-      </form>
+          <div className="form-group flex flex-row justify-start mb-4 ">
+            <label className="mr-4 w-[20%] font-poppinsbold">Content</label>
+            <textarea
+              name="content"
+              placeholder="Content of the post"
+              value={postContent ? postContent : ''}
+              onChange={(e) => setPostContent(e.target.value)}
+              cols={40}
+              rows={8}
+              className="w-[75%] bg-gray-300 rounded-md p-2"
+            />
+          </div>
+          <div className="btn-manage flex flex-row justify-between">
+            <div className="form-group">
+              <button
+                type="submit"
+                className="submit_btn border-solid border-2 border-black text-black hover:text-blue-600 hover:bg-gray-300 font-semibold p-2 rounded-md hover:border-blue-700"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </SubLayout>
   );
 }

@@ -6,7 +6,7 @@ import CarouselControls from './CarouselControls';
 import Dots from './Dots';
 
 // Define the props
-type Props = PropsWithChildren & EmblaOptionsType;
+type Props = PropsWithChildren<{ foo: string }> & EmblaOptionsType;
 
 const Carousel = ({ children, ...options }: Props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);

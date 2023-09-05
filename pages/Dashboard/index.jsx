@@ -3,6 +3,7 @@ import SubLayout from '../../components/SubLayout';
 import FileInput from '../../components/FileInput';
 import clientPromise from '../../lib/mongodb';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export async function getStaticProps(context) {
   const client = await clientPromise;
@@ -33,11 +34,20 @@ export default function index({ services }) {
   const handleUpdate = () => {}; */
   return (
     <SubLayout topic="DashBoard">
-      <div className="flex flex-row justify-between">
+      <div className="grid grid-cols-4 gap-2">
         {services.map((service, i) => {
           return (
-            <div>
-              <Link href={`/Dashboard/${service.id}`}>{service.name}</Link>
+            <div className="relative w-[300px] h-[200px]">
+              <Image
+                className="rounded-lg brightness-90 "
+                src={service.image}
+                alt={service.name1}
+                fill={true}
+                /*   onClick={() => handleImageClick(sub.image)} */
+              />
+              <Link href={`/Dashboard/${service.id}`} className="center-item">
+                <p className="font-poppinsbold"> {service.name}</p>
+              </Link>
             </div>
           );
         })}
