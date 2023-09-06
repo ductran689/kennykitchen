@@ -29,8 +29,7 @@ export async function getStaticProps({
 > {
   try {
     let response = await fetch(
-      `${process.env.URL}/api/getContent?id=` + params?.id,
-      { cache: 'no-store' }
+      'http://192.168.0.115:3000/api/getContent?id=' + params?.id
     );
 
     let responseFromServer: ResponseFromServer = await response.json();
@@ -60,9 +59,7 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  let posts = await fetch(`${process.env.URL}/api/getContents`, {
-    cache: 'no-store',
-  });
+  let posts = await fetch('http://192.168.0.115:3000/api/getContents');
 
   let postFromServer: [Post] = await posts.json();
   return {
@@ -90,9 +87,8 @@ export default function EditPost({
     if (postTitle && postContent) {
       try {
         let response = await fetch(
-          `${process.env.URL}/api/editContent?id=` + _id,
+          'http://192.168.0.115:3000/api/editContent?id=' + _id,
           {
-            cache: 'no-store',
             method: 'POST',
             body: JSON.stringify({
               name: postTitle,
